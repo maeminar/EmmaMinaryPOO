@@ -65,19 +65,29 @@ class MotoController
         include(__DIR__ . "/../../Templates/moto/add.php");
     }
     
-    // Mon Edit ne fonctionne pas mais je sais que c'est lié à mes variables dans mon form qui n'ont pas été définies. Je n'ai plus le temps (et plus la force) mais il me semble que sans ce détail, il doit fonctionner (ou je l'éspère ^^).
+    // Mon Edit ne fonctionne pas et je n'ai plus de temps :'( 
+
     // Route: /moto/edit/$id
     public function edit(int $id)
     {
+        $moto = $this->motoManager->findById($id);
+        if (!$moto) {
+            echo("Cette moto n'existe pas");
+        }
         //Verif si form valider ( methode POST )
         if ($_SERVER["REQUEST_METHOD"] === "POST") 
         {
         // Tout les champs sont fournies
         if (isset($_POST['id'], $_POST['brand'], $_POST['model'], $_POST['type'], $_POST['price'], $_POST['image'])) 
         { 
-        //edit en BDD
-        $moto = new moto($_POST['id'], $_POST['brand'], $_POST['model'], $_POST['type'], $_POST['price'], $_POST['image']);
-                $this->motoManager->edit($moto, $id); 
+       
+        $moto->setBrand($_POST['brand']);
+        $moto->setModel($_POST['model']);
+        $moto->setType($_POST['type']);
+        $moto->setPrice($_POST['price']);
+        $moto->setImage($_POST['image']);
+        
+        $this->motoManager->edit($moto, $id); 
         }      
         }
         //Afficher formulaire   
