@@ -10,7 +10,7 @@ class MotoManager extends DataBaseManager
 {
 
 // CREATE :
-    public function add (Moto $moto) 
+    public function add (Moto $moto) : void
     {
         {
             try {
@@ -48,6 +48,23 @@ class MotoManager extends DataBaseManager
     {
         $query = $this->getConnection()->prepare("SELECT * FROM moto WHERE id = :id");
         $query->execute([":id" => $id]);
+
+        //Verifier si j'ai un resultat
+        $res = $query->fetch();
+
+        if ($res === false) {
+            return $res;
+        }
+
+        //Convertir le resultat de la requete en Objet
+        return  Moto::fromArray($res);
+
+    }
+
+    public function findByType (string $type) : Moto|false
+    {
+        $query = $this->getConnection()->prepare("SELECT * FROM moto WHERE type = :type");
+        $query->execute([":type" => $type]);
 
         //Verifier si j'ai un resultat
         $res = $query->fetch();

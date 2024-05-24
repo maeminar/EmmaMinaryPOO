@@ -35,45 +35,54 @@ class MotoController
 
 
     // Route: /moto/$type
-    public function getByType(string $type)
+    public function getByType($type)
     {
         $moto = $this->motoManager->findByType($type);
     
-        echo "ROUTE: /moto/$type   (getByType)";
-
-        include(__DIR__ . "/../../Templates/moto/getByType.php");
-    
-        //return $moto;
+      //  echo "ROUTE: /moto/$type   (getByType)";
+        if (!$moto)
+            echo ("Type non renseigne");
+        else
+            include(__DIR__ . "/../../Templates/moto/getByType.php");
     }
 
     // Route: /moto/add/
-    public function add()
+    public function add() 
     {
         //Verif SI form valider ( methode POST )
-
+        if ($_SERVER["REQUEST_METHOD"] === "POST") 
+            {
         //SI tous les champs sont fournies
-        //add en BDD
-        //redirection index
-
-        // IL FAUT INCLUDE ICI LE TEMPLATES
-        //Afficher formulaire
-        echo "ROUTE: /moto/add   (add)";
-    }
-
+            if (isset($_POST['brand']) && isset($_POST['model']) && isset($_POST['type']) && isset($_POST['price']) && isset($_POST['image'])) {
+                //add en BDD
+                $moto = $this->motoManager->add($_POST);               
+                //redirection index
+                header('Location: index.php');
+            }
+              //Afficher formulaire
+            include(__DIR__ . "/../../Templates/moto/add.php");
+    }}
+    
     // Route: /moto/edit/$id
     public function edit(int $id)
     {
         //Verif si form valider ( methode POST )
+        if ($_SERVER["REQUEST_METHOD"] === "POST") 
+        {
         // Tout les champs sont fournies
         //edit en BDD
         //redirection index
-
-        echo "ROUTE: /moto/edit/$id   (edit)";
+        header('Location: ');
+        
+        //echo "ROUTE: /moto/edit/$id   (edit)";
+        include(__DIR__ . "/../../Templates/moto/edit.php");
+        }
     }
 
-    // Route: /pizza/delete/$id
+    // Route: /moto/delete/$id
     public function delete($id)
     {
-        echo "ROUTE: /moto/delete/$id   (delete)";
+        //echo "ROUTE: /moto/delete/$id   (delete)";
+        include(__DIR__ . "/../../Templates/moto/delete.php");
     }
 }
