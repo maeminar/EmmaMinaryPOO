@@ -14,11 +14,11 @@ class MotoManager extends DataBaseManager
     {
         {
             try {
-                $response = $this->getConnection()->prepare("INSERT INTO moto (id, brand, model, type, price, image) VALUES (:id, :brand, :model, :type, :price, :image)");
+                $response = $this->getConnection()->prepare("INSERT INTO moto (brand, model, type, price, image) VALUES (:brand, :model, :type, :price, :image)");
     
                 $response->execute(
                     [    
-                        ':id' => $moto->getId(),
+                        
                         ':brand' => $moto->getBrand(),
                         ':model' => $moto->getModel(),
                         ':type' => $moto->getType(),

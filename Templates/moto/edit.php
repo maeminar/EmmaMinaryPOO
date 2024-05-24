@@ -1,36 +1,44 @@
-<div class="p-3 m-5 d-flex justify-content-center align-items-center flex-column border border-4 border-black bg-dark text-white">
-<h1>Modifier la moto :</h1>
-<form method='POST' action=''>
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1
+/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Edit</title>
+  </head>
+<div class="p-4 m-5 d-flex justify-content-center align-items-center flex-column border border-4 border-black">
+<h1>Modifier une  moto</h1>
+<form method='POST' action="">
             <div class="form-group row">
-        <label for="id" name="id">Id :</label>
+        <label for="brand">Brand :</label>
             <div class="col-sm-10">
-        <input type="texte" name="id" id="id">
-            </div>
-            </div>
-            <div class="form-group row">
-        <label for="brand" name="brand">Brand :</label>
-            <div class="col-sm-10">
-        <input type="texte" name="brand" id="brand">
-            </div>
-            </div>
-            <div class="form-group row">
-        <label for="model" name="model">Model :</label>
-            <div class="col-sm-10">
-        <input type="texte" name="model" id="model">
+        <input type="text" name="brand" id="brand" value="<?php echo($brand);?>">
             </div>
             </div>
             <div class="form-group row">
-        <label for="type" name="type">Type :</label>
+        <label for="model">Model :</label>
             <div class="col-sm-10">
-        <input type="texte" name="type" id="type">
+        <input type="text" name="model" id="model" value="<?php echo($model);?>">
             </div>
             </div>
             <div class="form-group row">
-        <label for="price" name="price">Price :</label>
+        <label for="type">Type :</label>
             <div class="col-sm-10">
-        <input type="texte" name="price" id="price">
+        <input type="text" name="type" id="type" value="<?php echo($type);?>">
             </div>
             </div>
-        <input type="submit" value="Ajouter">
+            <div class="form-group row">
+        <label for="price">Price :</label>
+            <div class="col-sm-10">
+        <input type="number" name="price" id="price" value="<?php echo($price);?>">
+            </div>
+            </div>
+            <div class="form-group row">
+        <label for="image">URL de l'image :</label>
+            <div class="col-sm-10">
+        <input type="text" name="image" id="image" value="<?php echo($image);?>">
+            </div>
+        <input type="submit" value="Modifier">
     </form>
 </div>

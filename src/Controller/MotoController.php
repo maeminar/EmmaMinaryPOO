@@ -50,18 +50,20 @@ class MotoController
     public function add() 
     {
         //Verif SI form valider ( methode POST )
-        if ($_SERVER["REQUEST_METHOD"] === "POST") 
+       if ($_SERVER["REQUEST_METHOD"] === "POST") 
             {
-        //SI tous les champs sont fournies
-            if (isset($_POST['brand']) && isset($_POST['model']) && isset($_POST['type']) && isset($_POST['price']) && isset($_POST['image'])) {
+            //SI tous les champs sont fournies
+            if (isset($_POST['id'], $_POST['brand'], $_POST['model'], $_POST['type'], $_POST['price'], $_POST['image'])) 
+            { 
                 //add en BDD
-                $moto = $this->motoManager->add($_POST);               
-                //redirection index
-                header('Location: index.php');
-            }
-              //Afficher formulaire
-            include(__DIR__ . "/../../Templates/moto/add.php");
-    }}
+                
+                $moto = new moto($_POST['id'], $_POST['brand'], $_POST['model'], $_POST['type'], $_POST['price'], $_POST['image']);
+                $this->motoManager->add($moto);              
+            }      
+        }
+        //Afficher formulaire   
+        include(__DIR__ . "/../../Templates/moto/add.php");
+    }
     
     // Route: /moto/edit/$id
     public function edit(int $id)
@@ -70,18 +72,22 @@ class MotoController
         if ($_SERVER["REQUEST_METHOD"] === "POST") 
         {
         // Tout les champs sont fournies
+        if (isset($_POST['id'], $_POST['brand'], $_POST['model'], $_POST['type'], $_POST['price'], $_POST['image'])) 
+        { 
         //edit en BDD
-        //redirection index
-        header('Location: ');
-        
-        //echo "ROUTE: /moto/edit/$id   (edit)";
+        $moto = new moto($_POST['id'], $_POST['brand'], $_POST['model'], $_POST['type'], $_POST['price'], $_POST['image']);
+                $this->motoManager->edit($moto, $id); 
+        }      
+        }
+        //Afficher formulaire   
         include(__DIR__ . "/../../Templates/moto/edit.php");
         }
-    }
+    
 
     // Route: /moto/delete/$id
     public function delete($id)
     {
+        $this->motoManager->delete($id); 
         //echo "ROUTE: /moto/delete/$id   (delete)";
         include(__DIR__ . "/../../Templates/moto/delete.php");
     }

@@ -7,7 +7,8 @@
 /css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Delete</title>
   </head>
-
-  <form action="RouteDelete" method="POST" onsubmit="return confirm('Êtes vous sur de vouloir supprimer ?');">
+<body>
+  <form action="" method="POST" onsubmit="return confirm('Êtes vous sur de vouloir supprimer ?');">
     <input class="btn btn-danger" type="submit" value="Supprimer">
   </form>
+  </body>
