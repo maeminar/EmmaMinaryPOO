@@ -13,31 +13,31 @@
     <div class="form-group row">
         <label for="brand">Brand :</label>
         <div class="col-sm-10">
-            <input type="text" name="brand" id="brand" value="<?php echo $moto->brand; ?>">
+            <input type="text" name="brand" id="brand" value="<?php echo $moto->getBrand; ?>">
         </div>
     </div>
     <div class="form-group row">
         <label for="model">Model :</label>
         <div class="col-sm-10">
-            <input type="text" name="model" id="model" value="<?php echo $moto->model; ?>">
+            <input type="text" name="model" id="model" value="<?php echo $moto->getModel; ?>">
         </div>
     </div>
     <div class="form-group row">
         <label for="type">Type :</label>
         <div class="col-sm-10">
-            <input type="text" name="type" id="type" value="<?php echo $moto->type; ?>">
+            <input type="text" name="type" id="type" value="<?php echo $moto->getType; ?>">
         </div>
     </div>
     <div class="form-group row">
         <label for="price">Price :</label>
         <div class="col-sm-10">
-            <input type="number" name="price" id="price" value="<?php echo $moto->price; ?>">
+            <input type="number" name="price" id="price" value="<?php echo $moto->getPrice; ?>">
         </div>
     </div>
     <div class="form-group row">
         <label for="image">URL de l'image :</label>
         <div class="col-sm-10">
-            <input type="text" name="image" id="image" value="<?php echo $moto->image; ?>">
+            <input type="text" name="image" id="image" value="<?php echo $moto->getImage; ?>">
         </div>
     </div>
     <input type="submit" value="Modifier">
