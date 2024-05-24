@@ -65,6 +65,7 @@ class MotoController
         include(__DIR__ . "/../../Templates/moto/add.php");
     }
     
+    // Mon Edit ne fonctionne pas mais je sais que c'est lié à mes variables dans mon form qui n'ont pas été définies. Je n'ai plus le temps (et plus la force) mais il me semble que sans ce détail, il doit fonctionner (ou je l'éspère ^^).
     // Route: /moto/edit/$id
     public function edit(int $id)
     {
