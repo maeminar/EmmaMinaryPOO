@@ -7,12 +7,12 @@ use Src\Entity\Moto;
 
 $motoController = new MotoController ();
 
-$moto1 = new Moto(42, "YamahRRRaOO", "SuperspotOO", "Sportive", 1200, "URL");
+//$moto1 = new Moto(42, "YamahRRRaOO", "SuperspotOO", "Sportive", 1200, "URL");
 
-$moto2 = new Moto(52, "Riri", "Superspooot", "Sportive", 1600, "URL");
+//$moto2 = new Moto(52, "Riri", "Superspooot", "Sportive", 1600, "URL");
 
 
-$motoController->findAll();
+$motoController->add();
 
 
 //dump($resultat);
